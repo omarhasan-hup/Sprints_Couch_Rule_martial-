@@ -1,0 +1,484 @@
+Mr.Mahmoud, You put a lot of effort into this task, and it shows. Thank you for your commitment
+Regarding the API "Receive Signal" this API is in the COMM module and the RTE use it to ask the Communication stack to reply with the received Data on the Bus. 
+so you can consider it as an invocation form the RTE side to the COMM module so the COMM module will reply with a pointer to the received Data {Stored in the COMM buffer}
+
+
+
+Mohamed Yassin :
+
+Great Job Mr.Mohamed specially the reception sequence. please find the blow notes:
+
+Start-up sequence : please submit a start-up sequence because it is not atched in this submtion 
+
+Transmation sequence : Every thing looks fine execpt that thir is no Os task to intialize the transmation process => Hint: search for {Com_MainFunctionTx} it should be called bt the OS
+
+
+
+Amr Ashraf :
+
+Great Job Mr.Mohamed, please find the blow notes and resubmit the task:
+
+Start-up sequence :
+Note(1):
+There is a Indcation API from the CanSM to the ComM to state that the bus mode after the full intalization 
+Hint : search for the function called "ComM_BusSM_ModeIndication"
+
+
+Transmation sequence :
+Note(1): There must be an OS SWC in the sequence to start the transmassion process 
+Hint :search for the API {Com_MainFunctionTx}
+
+Note(2):
+There shall be a Confirmations Call backs from the lower layers to the above layers 
+Hint :search for the functions {CanIf_TxConfirmation,PduR_CanIfTxConfirmation}
+
+Reception sequence:
+Please, submit a RX sequence, because the attched file does not include one 
+
+
+
+
+Noor:
+
+Great Job Ya.Noor,You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Global Note: I Noticed you have finished this task on the Excel sheet and this is a lot of effort,So my advice is to use this tool {https://learngitbranching.js.org/} it is faster and more user freindly to create the diagrams 
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :No need to resubmit
+Note(1)[Minor]:
+There is an Indcation API from the CanSM to the ComM to state that the bus mode after the full intalization 
+Hint : search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmation sequence :
+Evey thing looks Just right
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Every thing looks just right thanks for this commetment in this sequence diagram
+
+
+
+Mohamed Sayed Zakaria :
+
+Great Job Ya.Mohamed,You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Please, Submit a Sequence diagram for the Start-up sequence as attached in the website
+----------------------------------------------------------------------------------------------------------------------------------
+Transmation sequence : resubmit this sequence diagram after resolving the below notes
+
+Note(1):
+The SWC "Software component" who calls the API {Com_MainFunctionTx} is the OS not the RTE 
+Note(2):
+There shall be a Confirmations Call backs from the lower layers to the above layers 
+Hint :search for the functions {CanIf_TxConfirmation,PduR_CanIfTxConfirmation}
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Every thing looks just right
+
+
+
+
+Ahmed Mohamed Abdalla:
+
+Great Job Ya.Ahmed,You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here 
+----------------------------------------------------------------------------------------------------------------------------------
+Transmation sequence : No need to resubmit
+Really Great work
+Note(1) [Minor]:
+The API {Com_MainFunctionTx()} shall be called the API {Pdur_ComTransmit()} as the main function will trigger all the lower layer modules
+such as the Pdur and CanIf ans so on.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Every thing looks just right
+
+
+Eman Adel Salah Hussein Mohamed :
+
+Great Job Ya.Eman,You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below minor notes.
+
+Note(1):
+There is an Indcation API from the CanSM to the ComM to state that the bus mode after the full intalization 
+Hint : search for the function called "ComM_BusSM_ModeIndication"
+
+Note(2):
+The API "CanIf_SetControllerMode" from the CanSm & CanIf & Can shall be in a loop
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmation sequence : No need to resubmit
+Really Great work
+Note(1) [Minor]:
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with thir functions
+such as the Pdur and CanIf ans so on.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+Adham Ehab:
+
+Great Job Ya.Adham,You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below minor notes.
+----------------------------------------------------------------------------------------------------------------------------------
+Transmation sequence : No need to resubmit
+Really Great work
+Note(1) [Minor]:
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with thir functions
+such as the Pdur and CanIf ans so on. Then comes the confirmations from those lower layers after the main function context 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+
+
+Cherine Heikal:
+
+Great Job Ya.Cherine,You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below minor notes.
+Note(1):
+There is an Indcation API from the CanSM to the ComM to state that the bus mode after the full intalization 
+Hint : search for the function called "ComM_BusSM_ModeIndication"
+
+Note(2):
+The API "CanIf_SetControllerMode" from the CanSm & CanIf & Can shall be in a loop
+----------------------------------------------------------------------------------------------------------------------------------
+Transmation sequence : No need to resubmit
+Really Great work
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with thir functions
+such as the Pdur and CanIf ans so on. Then comes the confirmations from those lower layers after the main function context 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+
+Abdelrhman Mostafa Khamis: 
+
+Great Job Ya Abdelrhman.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below notes.
+Note(1):
+The initialization function from the CanIf to the Can is {Can_SetControllerMode()} Not Can_Write()
+
+Note(2):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+YARA:
+
+Great Job Ya Yara.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below Minor notes.
+
+Note(1):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+The RTE Component Does not activate the communcation tx task as it is Configured to be called periodcally by the OS 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+Momen Ahmed:
+
+Great Job Ya Momen.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below notes.
+Note(1):
+The initialization function from the CanIf to the Can is {Can_SetControllerMode()} Not Can_Write()
+
+Note(2):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Everything looks just right
+But it would look better if you used the sraight arrows  
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+Ali Makhlouf:
+
+Great Job Ya Abdelrhman.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below notes.
+Note(1):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence : Find the below notes for your information.
+Really Great work, and i appericate that you included the IPDUM in your sequence 
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+Abdullah Hatem Amin:
+
+Great Job Ya Abdullah.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence : No need to resubmit
+Great Work here, please find the below notes.
+Note(1):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence : Pleas submit a seperate sequence diagram for the Tx sequence as you did for th RX  
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+Karim Elnekheily:
+
+Great Job Ya Karim.You put a lot of effort into this task, and it shows. As you have resolved all the points 
+-----------------------------------------------------------------------------------------------------------------
+Transmission sequence : Find the below note for your information
+Note:
+The API {Com_MainFunctionTx()} shall be called by the OS at first to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers AFTER the main function context
+
+the note here is just for you to know that the confirmations of the lower layers comes after the context of the main function of the TX   
+
+-----------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+Omar Mohamed Abdelaziz Mohamed Hamza:
+
+
+Great Job Mr,Omar.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below notes.
+
+Note(1):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Please, submit a seperate sequence diagram for the Transmission sequence
+
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Please, submit a seperate sequence diagram for the Reception sequence
+
+
+
+Mina Osama:
+Great Job Ya Mina.You put a lot of effort into this task, and it shows. You have successfully submitted the task with all the required points.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below notes.
+Note(1):
+There is an API "CanIf_SetControllerMode , CanSm_SetControllerMode" from the CanSm & CanIf to the Can shall be in a loop to intialize the Can Module
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+the note here is just for you to know that the confirmations of the lower layers comes after the context of the main function of the TX 
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+Mostafa Riad:
+
+Great Job Ya Mostafa.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, please find the below notes.
+
+Note(1):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+
+Note(2):
+The API {Copy L-Pdu Into Can Hardware} does not is not handeled by the OS, As the OS will call the Com_MainFunctionTx() to start the Comm stack funcnality 
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+
+Ahmed Mohamed Elnahass:
+
+Great Job Ya Abdallah.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, Looks just fine and organized 
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1) [Minor]:
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+the note here is just for you to know that the confirmations of the lower layers comes after the context of the main function of the TX
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Everything looks just right
+
+
+
+Omar:
+
+Great Job Ya Omar.Below there are 4 notes please go throgh those notes and resbmit the task 
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence : Pease find the below notes
+Note(1)
+The CanSM module shall intialize the Can module throught the CanIf module usin this API {CanIf_SetControllerMode} 
+
+Note(2)
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1):
+
+
+Note(2):
+The API {Copy L-Pdu Into Can Hardware} does not is not handeled by the OS, As the OS will call the Com_MainFunctionTx() to start the Comm stack funcnality 
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+There is no Rx Sequence diagrma attached for the Reception sequence. Please, attach one and resubmit 
+
+Great Job Ya Ahmed.You put a lot of effort into this task, and it shows.
+----------------------------------------------------------------------------------------------------------------------------------
+Start-up sequence :
+Great Work here, Looks just fine and organized
+----------------------------------------------------------------------------------------------------------------------------------
+Reception sequence:
+Great work here also 
+----------------------------------------------------------------------------------------------------------------------------------
+Transmission sequence :
+Really Great work
+Note(1):
+The API {Com_MainFunctionTx()} shall be called by the OS "Not the RTE" to trigger all the lower layer modules with their functions
+such as the Pdur and CanIf and so on. Then comes the confirmations from those lower layers after the main function context 
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+Great Job Mr.Fouad  
+Please consider the following notes :
+
+Start-up sequence :
+Note(1):
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+Note(2): 
+Please state the API names used from the CanSm  and The CanIf and also between the Can and the Cantrcv to achieve the full initialization 
+Hint: Search for the APIs {CanIf_SetTrcvMode(Normal), CanTrcv_SetOpMode(Normal) ,CanIf_SetControllerMode()}
+
+Note(2):
+For each API you call there shall be a confirmation, It is one of the most important standards in the Autosar 
+
+
+Transformation sequence :
+Note(1):
+The API {Can_Write()} is triggered from the CanIf SWC to the Can SWC not to the OS Task
+
+Note(2):
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the COMM and Pdur and CanIf and so on inside the context of the Com_MainFunctionTx().
+Then comes the confirmations from those lower layers after the main function context 
+
+
+Reception sequence:
+Please, submit a separate  RX sequence
+
+
+Great Efrots 
+Please consider the following notes : 
+
+Start-up sequence :
+
+Note(1): minor
+There is an Indication API from the CanSM to the ComM to state that the bus mode after the full initialization 
+Hint: search for the function called "ComM_BusSM_ModeIndication"
+
+
+Transformation sequence :
+
+Note(1): 
+As the transmission sequence you are presenting is the pooling type which senses the message b=not by interrupt then,
+The API {Com_MainFunctionTx()} shall be called by the OS to trigger all the lower layer modules with their functions
+such as the COMM and Pdur and CanIf and so on inside the context of the Com_MainFunctionTx().
+Then comes the confirmations from those lower layers after the main function context 
+
+
+Reception sequence:
+Looks great as an interrupt type reception sequence 

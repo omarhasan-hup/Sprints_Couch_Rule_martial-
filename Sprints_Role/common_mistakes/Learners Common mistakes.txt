@@ -1,0 +1,465 @@
+https://docs.google.com/spreadsheets/d/1xM3qEv9a5qTR4oF8wgo_rxZWBztdNIPV/edit?usp=sharing&ouid=116017796092813887770&rtpof=true&sd=true
+
+
+Yosef Elbandrawy:
+
+Great Job Ya Yosef. You put a lot of effort into this task, and it shows.
+You have successfully finished the required task with all the points. please, check the below notes for your information
+
+Note(1): In the logical Expression which shall be (if (KM != Correct number)), there is only one mode Condition (KM != Correct number)
+
+So in the field of Logical operator, there should be none because you do not have more than one mode condition 
+
+For example, if your logical expression is (if (X==5) && (Y==6)) then you have 2 mode conditions and the relation will be the AND
+then the logical operator will be AND 
+
+Also in the tab of "ActionListExecution" you shall select the trigger option to configure the rule to trigger the NO_Comm mode if the expression is true
+
+I hope this was clear 
+
+Thank you very much for your effort
+
+
+
+Abdallah Mohamed:
+
+Great Job Ya Abdallah. You put a lot of effort into this task, and it shows.
+You have successfully finished the required task with all the points. please, check the below notes for your information
+
+Note (1): in the tab of the "BswMModeRequestPort" the should be the {BswMNvMRequest} as you are reading the Value of the KM from the NVM.
+
+Note (2): In the logical Expression which shall be (if (KM != Correct number)), there is only one mode Condition (KM != Correct number)
+So in the field of Logical operator, there should be none because you do not have more than one mode condition 
+
+For example, if your logical expression is (if (X==5) && (Y==6)) then you have 2 mode conditions and the relation will be the AND
+then the logical operator will be AND
+
+I hope this was clear 
+
+Thank you very much for your effort
+
+
+
+
+Great Job Ya Amed. You put a lot of effort into this task, and it shows.
+You have successfully finished the required task with all the points. please, check the below notes for your information
+
+Note (1): in the tab of the "BswMModeRequestPort" the should be the {BswMNvMRequest} as you are reading the Value of the KM from the NVM.
+
+Note (2): In the logical Expression which shall be (if (KM != Correct number)), there is only one mode Condition (KM != Correct number)
+So in the field of Logical operator, there should be none because you do not have more than one mode condition 
+
+For example, if your logical expression is (if (X==5) && (Y==6)) then you have 2 mode conditions and the relation will be the AND
+then the logical operator will be AND
+
+Note (3): in the tab BSWMActions you should select the action types to be {BswMComMModeSwitch} as the COMM module will execute those actions when triggered by the BSWM RULE
+
+Note (4): in the tab of the NSWMModeCondition you should refer to the ModeRequestPort_NVM to read the KM_NVM inside the ModeCondiion.
+
+Note (5): in the tab BSWM Rule You should select the References for both action lists as below based on your configurations
+TRUE action list     => NO_COMM action list 
+FALSE action list    => FULL_COMM action list
+
+I hope those notes will be fruitful ISA :☺ 
+
+Thank you very much for your effort
+
+
+Great Job Ya Hosam. You put a lot of effort into this task, and it shows.
+You have successfully finished the required task with all the points. please, check the below answers for your questions.
+
+Ans (1): You are right, In the logical Expression which shall be for example (if (KM != Correct number)), there is only one mode Condition (KM != Correct number)
+So in the field of Logical operator, there should be none because you do not have more than one mode condition 
+
+For example, if your logical expression is (if (X==5) && (Y==6)) then you have 2 mode conditions and the relation will be the AND
+then the logical operator will be AND
+
+Ans (2): Let us define the action list.
+Action list:  is a group of actions related to each other and shall be executed one by one with the same sequence of actions when this action list is triggered
+
+So if the requirement stated that when the reading of the NVM_Km fails do the following: 
+(Put the ECU in a NO_COM state) and (light up the check engine warning LED) 
+
+Then we must have two action lists 
+
+(1) an action list for the NO_COMM mode(If (TRUE)) and another one for the FULL MODE (If (FALSE))
+
+(2) an action list for the check engine LED warning ON (IF (TRUE)) and another one for the check engine LED warning OFF (IF (FALSE))
+
+
+Final layout will be as below: 
+
+IF (Logical expression) 
+{
+/*True state*/
+action list NO_COMM 
+action list check engine LED ON 
+}
+
+{
+/*False state*/
+
+action list FULL_COM
+action list check engine LED OFF
+
+}
+
+I hope those answers will be fruitful ISA :☺ 
+
+Thank you very much for your effort
+
+
+Abdallah Mohamed:
+
+Great Job Mr. Abdallah. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Read All () sequence :
+-----------------------
+
+Note: The NVM main_function() is called by the OS task before the other main_functions of the lower layer modules such as the EEP_manin_funcion.
+
+Also, I have to admit you have understood the main functionality of the NVM stack as you successfully called the CRC check after the Read all operation,
+As it calculates the CRC on the Read data and compares it to the stored one 
+It is good to notice this by yourself 
+Thank you for such a Great Sequence diagram 
+
+Write All () sequence :
+-----------------------
+The attached drawio does not contain the sequence diagram for the write all (), But it is literally the vice versa of the read all ()
+Note(1): The Same note as for the Read all () to put the NVM_Main_Function before the lower layers main functions 
+Note(2): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation 
+
+
+
+
+
+Mahmoud:
+
+Great Job Mr. Mahmoud. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [Done]
+
+Note(2): In the Read  all() The NVM stack initates th Read operation from the NVM block to read [DATA && stored CCRC for this data] then intiates a CRC check on the read data then compares the calculated CRC with the Read CRC
+
+
+Omar hatem:
+
+Great Job Mr. Omar. You have put a lot of effort in this task and it really shows.
+
+Read All () sequence :
+-----------------------
+
+Note: The NVM main_function() is called by the OS task before the other main_functions of the lower layer modules such as the EEP_manin_funcion.
+
+Also, I have to admit you have understood the main functionality of the NVM stack as you successfully called the CRC check after the Read all operation,
+As it calculates the CRC on the Read data and compares it to the stored one 
+It is good to notice this by yourself 
+Thank you for such a Great Sequence diagram 
+
+Write All () sequence :
+-----------------------
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation 
+
+
+
+Yosef Elbandrawy:
+
+Great Job Mr. Yosef. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Read All () sequence :
+-----------------------
+I have to admit you have understood the main functionality of the NVM stack as you successfully called the CRC check after the Read all operation,
+As it calculates the CRC on the Read data and compares it to the stored one 
+It is good to notice this by yourself 
+Thank you for such a Great Sequence diagram 
+
+Write All () sequence :
+-----------------------
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already achieved this]
+
+Note(2): The write all () operation shall be in a loop just like you have made in the Read all (), As the write all request is a request to write all the NVM blocks that are configured to be written before shutting down. 
+
+
+mahmoud :
+
+Great Job Mr. Mahmoud. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already done this]
+
+Note(2): In the Read  all() The NVM stack initates th Read operation from the NVM block to read [DATA && stored CRC for this data] then intiates a CRC check on the read data then compares the calculated CRC with the Read CRC. So in the Read operation the CRC is done after the Read operation.
+
+Omar :
+
+Great Job Mr. Omar. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already done this]
+
+Note(2): In the Read  all() The NVM stack initiates the Read operation from the NVM block to read [DATA && stored CRC for this data] then initiates a CRC check on the read data then compares the calculated CRC with the Read CRC. So in the Read request, the CRC is done after the Read operation.
+
+Mr.Amr
+Great Work 
+You have successfully submitted the Memory configuration sheet without errors, But there are 2 other requirements need to be submitted 
+- Read all sequence diagram 
+- Write all sequence diagram 
+
+
+
+Tasneem:
+
+Great Job Ya Tasneem. You have put a lot of effort in this task and it really shows.
+
+Here are the Notes that I am happy that you have achieved it.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already done this]
+
+Note(2): In the Read  all() The NVM stack initiates the Read operation from the NVM block to read [DATA && stored CRC for this data] then initiates a CRC check on the read data then compares the calculated CRC with the Read CRC.
+So in the Read request, the CRC is done after the Read operation. [You have already done this]
+
+
+
+Great Job Mr.Mostafa
+You have successfully submitted the below-required points :
+
+=> Memory stack configuration sheet [without notes] Good job
+
+=> Write all () sequence diagram [with minor notes] :
+Note(1): The CRC check is done before the Write operation is triggered to check the Data validity before writing it to the targeted NVM block
+
+Note(2): The write-all API is used to write all the NVM blocks that are configured to be saved in the NVM before the shutdown. So, the Write all shall be a cyclic operation to write all those blocks with a normal write operation.
+
+=> Read all () sequence diagram [Not Submitted]: please submit this diagram
+
+
+
+Mark Ehab:
+
+Great Job Mr. Mark. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already done this]
+
+Note(2): In the Read  all() The NVM stack initiates the Read operation from the NVM block to read [DATA && stored CRC for this data] then initiates a CRC check on the read data then compares the calculated CRC with the Read CRC.
+So in the Read request, the CRC is done after the Read operation. 
+
+
+
+
+Ahmed :
+
+Great Job Mr. Ahmed. 
+
+You have successfully submitted the below-required points :
+
+=> Memory stack configuration sheet [without notes] Good job
+
+=> Write all () sequence diagram [with minor notes] :
+Note(1): The CRC check is done before the Write operation is triggered to check the Data validity before writing it to the targeted NVM block
+
+Note(2): The write-all API is used to write all the NVM blocks that are configured to be saved in the NVM before the shutdown. So, the Write all shall be a cyclic operation to write all those blocks with a normal write operation.
+
+=> Read all () sequence diagram [Not Submitted]: please submit this diagram
+
+
+Ahmed2:
+Great Job Mr. Ahmed. 
+
+The required points to be submitted were as follow:
+
+1) Memory configuration sheet [Submitted]
+
+2) Write all () sequence diagram [Not Submitted]
+
+2) Read all () sequence diagram [Not Submitted] 
+
+Please Re-submit the rest of the requirments 
+
+Memory configuration sheet
+--------------------------
+Note (1): The Data bytes shall be 3 bytes not one as the required task stated "Data size allocated for the KM should be 3 byte excluding the 2 bytes for CRC" which means, 
+the total size shall be (3 bytes Data + 2 bytes CRC) = 5 bytes 
+
+Please fix this note too 
+
+
+Mario:
+
+Great Job Mr. Mario. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already done this]
+
+Note(2): In the Read  all() The NVM stack initiates the Read operation from the NVM block to read [DATA && stored CRC for this data] then initiates a CRC check on the read data then compares the calculated CRC with the Read CRC.
+So in the Read request, the CRC is done after the Read operation.
+
+
+Yara:
+
+Great Job Ya Yara. You have put a lot of effort in this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation [You have already done this]
+
+Note(2): In the Read  all() The NVM stack initiates the Read operation from the NVM block to read [DATA && stored CRC for this data] then initiates a CRC check on the read data then compares the calculated CRC with the Read CRC.
+So in the Read request, the CRC is done after the Read operation.
+
+
+
+Great Job Mr. Karim. You have put a lot of effort into this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note(1): In the Write all() we check on the Data validity before the write operation starts so the NVM stack checks the CRC for the data before the initiation of the write operation to ensure it will write valid data [You have already done this]
+
+Note(2): In the Read all() The NVM stack initiates the Read operation from the NVM block to read [DATA && stored CRC for this data] then initiates a CRC check on the read data, and then compares the calculated CRC with the Read CRC.
+So in the Read request, the CRC is done after the Read operation.
+
+Note(3): The KM Nvm Block shall be configured for the write all and read all as the KM data is vital info as mentioned in the task. So, it needs to be saved in the NVM before shutdown using the Wrtie all API and then to be restored in the start up using read all API 
+
+
+Note (1): The write-all API is used to write all the NVM blocks that are configured to be saved in the NVM before the shutdown. So, the Write all shall be a cyclic operation to write all those blocks with a normal write operation. In the attached sequence diagram the main function and the write operation were called just one time which means you only wrote one block, however, they must be in a loop to write all the blocks configured in the write all 
+
+Note (2): The same goes for the Read all API 
+
+
+###########################################################################################################################################################################################################################################################################################################################################################################
+############################################## WATCH DOG###################################################################################################################################################################################################################################################################################################################
+###########################################################################################################################################################################################################################################################################################################################################################################
+
+Mina:
+Great Job Mr. Mina. You have put a lot of effort into this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note (1): It is more professional to use separate SupervisedEntity for each Application, in order to capture the reset reason in each SupervisedEntity.
+
+Note (2): According to the SupervisedEntity for the temperature sensor application, we shall have 2 supervision functions: Alive supervision function, and Deadline supervision function 
+		  The Alive supervision function shall check on the periodicity of the temperature reading each 5ms as stated 
+                  in the requirements, It will require only one checkpoint.
+		  The Deadline supervision function shall be used to ensure that the reading period must not exceed 3 ms. This 
+                  supervision function will require 2 Checkpoints.
+		 
+Note (3): According to the SupervisedEntity for the pressure sensor application, We should have only one supervision function: Deadline supervision function 
+		  This Deadline supervision function will have 4 checkpoints to achieve requirements (5), then we will use the "WdgMInternalTransition" to show the Deadline supervision function
+		  which checkpoint will come next.
+		  
+Note (4): In normal Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 4         to achieve the requirement (4)
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec   to achieve the requirement (4)
+		  By fusing those above, during the normal mode the watchdog will reset only after 4 (20 ms) watchdog main function (5ms) which is the required 
+		  
+Note (5): In Sleep Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 1         to achieve the requirement (8)
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec to achieve the requirement (8)
+		  
+		  
+		  
+YARA:
+
+WdgMMaxMargin shall not be 15 it shall be 0 
+WdgMCheckpoint_1 was used in the Alive supervision function once and it can not be used in the Deadline supervision function 
+
+Great Job Yara. You have put a lot of effort into this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note (1): It is more professional to use separate SupervisedEntity for each Application, in order to capture the reset reason in each SupervisedEntity. [Done]
+
+Note (2): According to the SupervisedEntity for the temperature sensor application, we shall have 2 supervision functions: Alive supervision function, and Deadline supervision function [Done]
+		  The Alive supervision function shall check on the periodicity of the temperature reading each 5ms as stated 
+                  in the requirements, It will require only one checkpoint.[Done]
+		  The Deadline supervision function shall be used to ensure that the reading period must not exceed 3 ms. This 
+                  supervision function will require 2 Checkpoints.[Done]
+				  
+				  Hint: WdgMCheckpoint_1 was used in the Alive supervision function once and it can not be used in the Deadline supervision function  && WdgMMaxMargin shall not be 15 it shall be 0 
+		 
+Note (3): According to the SupervisedEntity for the pressure sensor application, We should have only one supervision function: Deadline supervision function 
+		  This Deadline supervision function will have 4 checkpoints to achieve requirements (5), then we will use the "WdgMInternalTransition" to show the Deadline supervision function
+		  which checkpoint will come next. [Done]
+		  
+Note (4): In normal Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 3(ms)         to achieve the requirement (7)
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec   to achieve the requirement (7)
+		  By fusing those above, during the normal mode, the watchdog will reset only the duration (5ms) with a tolerance of more (3ms) [Need to be reviewed from your side]
+		  
+Note (5): In Sleep Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 1         to achieve the requirement (8)[Need to be reviewed from your side]
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec to achieve the requirement (8)    [Need to be reviewed from your side]
+		  
+		  
+Yosef Elbandrawy:
+
+Great Job Ahmed. You have put a lot of effort into this task and it really shows.
+
+Here are some minor notes for you to notice.
+
+Note (1): It is more professional to use separate SupervisedEntity for each Application, in order to capture the reset reason in each SupervisedEntity. [Done]
+
+Note (2): According to the SupervisedEntity for the temperature sensor application, we shall have 2 supervision functions: Alive supervision function, and Deadline supervision function [Done]
+		  The Alive supervision function shall check on the periodicity of the temperature reading each 5ms as stated 
+          in the requirements, It will require only one checkpoint. Also, the configuration parameter "WdgMFailedAliveSupervisionRefCycleTol" shall be 4 to trigger the WD timeout if the temperature sensor did not update for 4 times [Done]
+		  The Deadline supervision function shall be used to ensure that the reading period must not exceed 3 ms. This 
+          supervision function will require 2 Checkpoints.[Done]
+				  
+		 
+Note (3): According to the SupervisedEntity for the pressure sensor application, We should have only one supervision function: Deadline supervision function 
+		  This Deadline supervision function will have 4 checkpoints to achieve requirements (5), then we will use the "WdgMInternalTransition" to show the Deadline supervision function
+		  which checkpoint will come next. [Done]
+		  
+Note (4): In normal Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 3(ms)         to achieve the requirement (7)
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec   to achieve the requirement (7)
+		  By fusing those above, during the normal mode, the watchdog will reset only the duration (5ms) with a tolerance of more (3ms) [Need to be reviewed from your side]
+		  
+Note (5): In Sleep Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 1         to achieve the requirement (8)[Need to be reviewed from your side]
+		  
+WdgMSupervisionCycle (sec): shall be 0.005 sec to achieve the requirement (8)   [Done]
+
+You have submitted all the required points with only one needs your attention as mentioned above, I hope you find this summary fruitful
+		  
+		  
+
+Adham Ehab:
+
+Hosam:
+Great Job Hosam. You have put a lot of effort into this task and it really shows.
+I have to admit that this is one of the best submission in the watchdog task
+Here are some minor notes for you to notice.
+
+Note (1): It is more professional to use separate SupervisedEntity for each Application, in order to capture the reset reason in each SupervisedEntity. [Done]
+
+Note (2): According to the SupervisedEntity for the temperature sensor application, we shall have 2 supervision functions: Alive supervision function [periodicty check], and Deadline supervision function [3ms deadline] [Done]
+		 
+   		 => The Alive supervision function shall check on the periodicity of the temperature reading each 5ms as stated 
+          in the requirements, It will require only one checkpoint. Also, the configuration parameter "WdgMFailedAliveSupervisionRefCycleTol" shall be 4 to trigger the WD timeout if the temperature sensor did not update for 4 times.
+		  
+		 => The Deadline supervision function shall be used to ensure that the reading period must not exceed 3 ms. This supervision function will require 2 Checkpoints.[Done]
+				  
+So the Idael solution for the temperature sensor is to fyse your both soluations as above 		 
+Note (3): According to the SupervisedEntity for the pressure sensor application, We should have only one supervision function: Deadline supervision function 
+		  This Deadline supervision function will have 4 checkpoints to achieve requirements (5), then we will use the "WdgMInternalTransition" to show the Deadline supervision function
+		  which checkpoint will come next. [Done]
+		  
+Note (4): In normal Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 3(ms)         to achieve the requirement (7)
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec   to achieve the requirement (7)
+		  By fusing those above, during the normal mode, the watchdog will reset only the duration (5ms) with a tolerance of more (3ms) [Need to be reviewed from your side]
+		  Hint: the configuration paamter "WdgMExpiredSupervisionCycleTol" is used to introduces a tolerance window for the supervision cycle expiration
+		  in the Watchdog Manager, providing some flexibility in the timing of Watchdog Timer refresh operations.
+		  which means if the wtach dog main function comes every 5ms as the case in our example then we could add 3ms more as a flexibility before the WD rest the ECU
+Note (5): In Sleep Operation Mode,
+		  WdgMExpiredSupervisionCycleTol: shall be 1         to achieve the requirement (8)[Need to be reviewed from your side]
+		  WdgMSupervisionCycle (sec): shall be 0.005 sec to achieve the requirement (8)    [Need to be reviewed from your side]
